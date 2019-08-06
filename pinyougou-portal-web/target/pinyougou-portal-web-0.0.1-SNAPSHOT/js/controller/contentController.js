@@ -1,0 +1,9 @@
+app.controller("contentController",function($scope,contentService){
+	//根据广告分类id获取广告信息
+	$scope.contentList=[];//定义一个容器专门储存广告信息
+	$scope.findByCategoryId=function(categoryId){
+		contentService.findByCategoryId(categoryId).success(function(response){
+			$scope.contentList[categoryId]=response;
+		})
+	}
+})
